@@ -13,6 +13,16 @@ def generate_data(item_num: int, max_set_element: int, data_num: int):
         set_element = random.randint(1, max_set_element+1)
 
         # generate dataset
-        dataset.append(set(random.sample(element_list, k=set_element)))
-
+        dataset.append(list(random.sample(element_list, k=set_element)))
+    dataset = [
+        [1, 2, 5],
+        [2, 4],
+        [2, 3],
+        [1, 2, 4],
+        [1, 3],
+        [2, 3],
+        [1, 3],
+        [1, 2, 3, 5],
+        [1, 2, 3]
+    ]
     return dataset
