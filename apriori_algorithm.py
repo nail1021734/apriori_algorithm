@@ -91,6 +91,7 @@ def apriori_algorithm(dataset, min_support):
     frequency_table = {}
     gen_frequency_table = None
     itemset_size = 1
+    min_support = len(dataset) * min_support
     while True:
         hashtree = HashTree(
             max_child_num=itemset_size,
@@ -115,8 +116,8 @@ def apriori_algorithm(dataset, min_support):
 
 if __name__ == "__main__":
     dataset = IBM_data()
-    print(dataset)
     # print(dataset)
-    fre_table = apriori_algorithm(dataset=dataset, min_support=5)
-    rule = generate_rule(fre_table, 0.9999)
+    # print(dataset)
+    fre_table = apriori_algorithm(dataset=dataset, min_support=0.2)
+    rule = generate_rule(fre_table, 0.3)
     # print(rule.keys())

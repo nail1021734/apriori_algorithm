@@ -14,14 +14,16 @@ class Node:
 
 
 class Tree:
-    def __init__(self, min_supprot):
+    def __init__(self, min_supprot, data_size):
         r"""
         frequency_table={'item' : 'frequency'}
         """
         self.root = Node(parent=None, item=None, frequency=0)
         self.frequency_table = {}
-        self.min_supprot = min_supprot
+        # self.min_supprot = min_supprot
         self.header_table = {}
+        self.data_size = data_size
+        self.min_supprot = min_supprot * data_size
         # h_keys = list(frequency_table.keys())
         # self.sorted_header = sorted(
         #     h_keys,
@@ -131,9 +133,7 @@ class Tree:
 
 if __name__ == "__main__":
     dataset = IBM_data()
-    tree = Tree(min_supprot=5)
-    for i in dataset:
-        print(i)
+    tree = Tree(min_supprot=0.2, data_size=len(dataset))
     tree.create_FPTree(dataset)
     tree.dfs(tree.root)
-    rule = generate_rule(tree.find_frequency_patten(), 0.99999)
+    rule = generate_rule(tree.find_frequency_patten(), 0.3)
