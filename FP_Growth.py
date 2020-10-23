@@ -133,7 +133,13 @@ class Tree:
 
 if __name__ == "__main__":
     dataset = IBM_data()
-    tree = Tree(min_supprot=0.2, data_size=len(dataset))
+    tree = Tree(min_supprot=0.39, data_size=len(dataset))
     tree.create_FPTree(dataset)
     tree.dfs(tree.root)
-    rule = generate_rule(tree.find_frequency_patten(), 0.3)
+    print(tree.find_frequency_patten())
+    table= tree.find_frequency_patten()
+    table = sorted(table.items(), key=lambda x:x[1])
+    for key, value in table:
+
+        print(key, ':', value)
+    rule = generate_rule(tree.find_frequency_patten(), 0.6, len(dataset))

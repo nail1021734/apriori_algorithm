@@ -119,5 +119,5 @@ if __name__ == "__main__":
     # print(dataset)
     # print(dataset)
     fre_table = apriori_algorithm(dataset=dataset, min_support=0.2)
-    rule = generate_rule(fre_table, 0.3)
+    rule = generate_rule(fre_table, 0.3, len(dataset))
     # print(rule.keys())

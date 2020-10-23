@@ -39,4 +39,4 @@ def apriori_algorithm(Dataset, min_support):
 if __name__ == "__main__":
     dataset = IBM_data()
     f = apriori_algorithm(dataset, min_support=0.2)
-    generate_rule(f, 0.3)
+    generate_rule(f, 0.3,len(dataset))
