@@ -1,0 +1,93 @@
+2506 : ('Bread', 'Lassi')
+2507 : ('Bread', 'Yougurt')
+2511 : ('Ghee', 'Lassi')
+2511 : ('Ghee', 'Milk')
+2512 : ('Coffee Powder', 'Lassi')
+2512 : ('Milk', 'Sweet')
+2513 : ('Milk', 'Yougurt')
+2516 : ('Ghee', 'Sugar')
+2517 : ('Cheese', 'Coffee Powder')
+2517 : ('Bread', 'Milk')
+2518 : ('Coffee Powder', 'Milk')
+2523 : ('Ghee', 'Panner')
+2528 : ('Bread', 'Coffee Powder')
+2529 : ('Butter', 'Yougurt')
+2529 : ('Sugar', 'Yougurt')
+2530 : ('Bread', 'Cheese')
+2530 : ('Butter', 'Ghee')
+2532 : ('Cheese', 'Yougurt')
+2539 : ('Lassi', 'Milk')
+2539 : ('Bread', 'Sweet')
+2543 : ('Butter', 'Sweet')
+2550 : ('Bread', 'Panner')
+2555 : ('Coffee Powder', 'Yougurt')
+2563 : ('Milk', 'Sugar')
+2571 : ('Butter', 'Sugar')
+2576 : ('Lassi', 'Sweet')
+2578 : ('Coffee Powder', 'Ghee')
+5383 : ('Tea Powder',)
+5432 : ('Lassi',)
+5444 : ('Panner',)
+5476 : ('Cheese',)
+5481 : ('Butter',)
+5482 : ('Sugar',)
+5483 : ('Sweet',)
+5484 : ('Bread',)
+5503 : ('Yougurt',)
+5509 : ('Coffee Powder',)
+5510 : ('Ghee',)
+5526 : ('Milk',)
+('Milk',) => ('Ghee',) : conf:0.4543973941368078, support0.20046303688328276
+('Milk',) => ('Sweet',) : conf:0.45457835685848713, support0.20054287082867636
+('Milk',) => ('Yougurt',) : conf:0.45475931958016647, support0.20062270477406993
+('Milk',) => ('Bread',) : conf:0.4554831704668838, support0.20094204055564427
+('Yougurt',) => ('Bread',) : conf:0.4555696892604034, support0.20014370110170845
+('Milk',) => ('Coffee Powder',) : conf:0.45566413318856314, support0.20102187450103784
+('Ghee',) => ('Lassi',) : conf:0.4557168784029038, support0.20046303688328276
+('Ghee',) => ('Milk',) : conf:0.4557168784029038, support0.20046303688328276
+('Coffee Powder',) => ('Lassi',) : conf:0.4559811218006898, support0.20054287082867636
+('Ghee',) => ('Sugar',) : conf:0.45662431941923776, support0.20086220661025067
+('Yougurt',) => ('Milk',) : conf:0.45666000363438125, support0.20062270477406993
+('Coffee Powder',) => ('Cheese',) : conf:0.456888727536758, support0.20094204055564427
+('Bread',) => ('Lassi',) : conf:0.45696571845368344, support0.20006386715631486
+('Coffee Powder',) => ('Milk',) : conf:0.45707024868397167, support0.20102187450103784
+('Bread',) => ('Yougurt',) : conf:0.45714806710430345, support0.20014370110170845
+('Ghee',) => ('Panner',) : conf:0.45789473684210524, support0.20142104422800575
+('Sweet',) => ('Milk',) : conf:0.4581433521794638, support0.20054287082867636
+('Coffee Powder',) => ('Bread',) : conf:0.4588854601561082, support0.20182021395497365
+('Sugar',) => ('Ghee',) : conf:0.4589565851878876, support0.20086220661025067
+('Bread',) => ('Milk',) : conf:0.4589715536105033, support0.20094204055564427
+('Ghee',) => ('Butter',) : conf:0.4591651542649728, support0.20197988184576082
+('Milk',) => ('Lassi',) : conf:0.45946435034382915, support0.20269838735430304
+('Yougurt',) => ('Butter',) : conf:0.45956750863165546, support0.20190004790036722
+('Yougurt',) => ('Sugar',) : conf:0.45956750863165546, support0.20190004790036722
+('Cheese',) => ('Coffee Powder',) : conf:0.4596420745069394, support0.20094204055564427
+('Yougurt',) => ('Cheese',) : conf:0.46011266581864435, support0.202139549736548
+('Bread',) => ('Coffee Powder',) : conf:0.46097738876732314, support0.20182021395497365
+('Sugar',) => ('Yougurt',) : conf:0.461327982488143, support0.20190004790036722
+('Lassi',) => ('Bread',) : conf:0.46134020618556704, support0.20006386715631486
+('Bread',) => ('Cheese',) : conf:0.4613420860685631, support0.20197988184576082
+('Butter',) => ('Yougurt',) : conf:0.4614121510673235, support0.20190004790036722
+('Butter',) => ('Ghee',) : conf:0.46159459952563403, support0.20197988184576082
+('Cheese',) => ('Bread',) : conf:0.4620160701241782, support0.20197988184576082
+('Lassi',) => ('Ghee',) : conf:0.46226067746686306, support0.20046303688328276
+('Cheese',) => ('Yougurt',) : conf:0.46238130021913804, support0.202139549736548
+('Lassi',) => ('Coffee Powder',) : conf:0.46244477172312226, support0.20054287082867636
+('Bread',) => ('Sweet',) : conf:0.462983223924143, support0.20269838735430304
+('Sweet',) => ('Bread',) : conf:0.4630676636877622, support0.20269838735430304
+('Panner',) => ('Ghee',) : conf:0.46344599559147687, support0.20142104422800575
+('Coffee Powder',) => ('Yougurt',) : conf:0.46378653113087676, support0.20397573048060036
+('Sweet',) => ('Butter',) : conf:0.4637971913186212, support0.20301772313587738
+('Milk',) => ('Sugar',) : conf:0.4638074556641332, support0.204614402043749
+('Butter',) => ('Sweet',) : conf:0.46396642948367084, support0.20301772313587738
+('Yougurt',) => ('Coffee Powder',) : conf:0.46429220425222606, support0.20397573048060036
+('Bread',) => ('Panner',) : conf:0.4649890590809628, support0.20357656075363245
+('Lassi',) => ('Milk',) : conf:0.46741531664212077, support0.20269838735430304
+('Sugar',) => ('Milk',) : conf:0.4675300985041955, support0.204614402043749
+('Ghee',) => ('Coffee Powder',) : conf:0.46787658802177856, support0.20581191122465273
+('Coffee Powder',) => ('Ghee',) : conf:0.4679615175167907, support0.20581191122465273
+('Panner',) => ('Bread',) : conf:0.46840558412931665, support0.20357656075363245
+('Sugar',) => ('Butter',) : conf:0.4689894199197373, support0.20525307360689765
+('Butter',) => ('Sugar',) : conf:0.4690749863163656, support0.20525307360689765
+('Sweet',) => ('Lassi',) : conf:0.4698157942732081, support0.20565224333386556
+('Lassi',) => ('Sweet',) : conf:0.4742268041237113, support0.20565224333386556

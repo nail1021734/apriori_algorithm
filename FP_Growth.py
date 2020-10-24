@@ -2,7 +2,11 @@ from generate_dataset import generate_data
 from itertools import combinations
 from generate_rule import generate_rule
 from read_IBM_Data import IBM_data
-
+import time
+from torch.utils.tensorboard import SummaryWriter
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+from kaggle_data import kaggle_data
 
 class Node:
     def __init__(self, parent, item, frequency):
@@ -52,10 +56,11 @@ class Tree:
                 del self.frequency_table[item]
 
         for transaction in dataset:
-            for item in transaction.copy():
+            t = transaction.copy()
+            for item in transaction:
                 if item not in self.frequency_table.keys():
-                    transaction.remove(item)
-            t = self.sort_transaction(transaction)
+                    t.remove(item)
+            t = self.sort_transaction(t)
             self.insert_sorted_transaction(
                 now_node=self.root, transaction=t, index=0)
 
@@ -93,7 +98,7 @@ class Tree:
 
     def dfs(self, node):
         for child in node.children:
-            print(child.item, ':', child.frequency)
+            # print(child.item, ':', child.frequency)
             self.dfs(child)
         return
 
@@ -130,16 +135,76 @@ class Tree:
                     del frequency_pattern[key]
         return frequency_pattern
 
-
-if __name__ == "__main__":
-    dataset = IBM_data()
-    tree = Tree(min_supprot=0.39, data_size=len(dataset))
+def run_FP_growth(dataset, sup):
+    tree = Tree(min_supprot=sup, data_size=len(dataset))
     tree.create_FPTree(dataset)
     tree.dfs(tree.root)
-    print(tree.find_frequency_patten())
-    table= tree.find_frequency_patten()
-    table = sorted(table.items(), key=lambda x:x[1])
-    for key, value in table:
+    table = tree.find_frequency_patten()
+    return table
 
-        print(key, ':', value)
-    rule = generate_rule(tree.find_frequency_patten(), 0.6, len(dataset))
+# if __name__ == "__main__":
+#     for s in range(2, 828//2, 828 // 20):
+#         for c in range(0, 12):
+#             sup = round(s/828.0,3)
+#             print(s)
+#             co = round(c/12.0, 3)
+#             dataset = IBM_data()
+#             tree = Tree(min_supprot=sup, data_size=len(dataset))
+#             tree.create_FPTree(dataset)
+#             tree.dfs(tree.root)
+#             # print(tree.find_frequency_patten())
+#             table= tree.find_frequency_patten()
+#             table = sorted(table.items(), key=lambda x:x[1])
+#             with open(f'log/s_{sup:.3f}_c_{co:.3f}.txt','w',encoding='utf8') as output_file:
+#                 for key, value in table:
+#                     output_file.write(f'{value} : {key}\n')
+#                 rule = generate_rule(tree.find_frequency_patten(), co, len(dataset))
+#                 table = rule
+#                 table = sorted(table.items(), key=lambda x: x[1][0])
+#                 for key, value in table:
+#                     output_file.write(f'{key[0]} => {key[1]} : conf:{value[0]}, support{value[1]}\n')
+
+def timetest1():
+    timelist = []
+    suplist = []
+    dataset = kaggle_data()
+    # print(dataset)
+    for c in tqdm(range(2, 20, 1)):
+        timelist.append([])
+        suplist.append([])
+        for s in range(2, 20, 1):
+            # Set min support and conf
+            sup = s / 20
+            conf = c / 20
+            print(sup)
+            # Run FP_Growth
+            start = time.time()
+            frequency_table = run_FP_growth(dataset, sup)
+            rule = generate_rule(frequency_table, conf, len(dataset))
+            total_time = time.time()-start
+
+            # Record time
+            timelist[-1].append(total_time)
+            suplist[-1].append(sup)
+
+            # Save result
+            frequency_table = sorted(frequency_table.items(), key=lambda x:x[1])
+            with open(f'log/s_{sup:.3f}_c_{conf:.3f}.txt','w',encoding='utf8') as output_file:
+                for key, value in frequency_table:
+                    # print(f'{value} : {key}')
+                    output_file.write(f'{value} : {key}\n')
+
+                rule = sorted(rule.items(), key=lambda x: x[1][0])
+                for key, value in rule:
+                    # print(f'{key[0]} => {key[1]} : conf:{value[0]}, support{value[1]}')
+                    output_file.write(f'{key[0]} => {key[1]} : conf:{value[0]}, support{value[1]}\n')
+
+        # Draw graph
+        plt.plot(suplist[-1], timelist[-1],label = f'conf = {conf:.3f}')
+    plt.legend()
+    plt.xlabel('support')
+    plt.ylabel('time')
+    plt.show()
+
+if __name__ == "__main__":
+    timetest1()

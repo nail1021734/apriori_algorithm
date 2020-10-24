@@ -118,6 +118,6 @@ if __name__ == "__main__":
     dataset = IBM_data()
     # print(dataset)
     # print(dataset)
-    fre_table = apriori_algorithm(dataset=dataset, min_support=0.2)
+    fre_table = apriori_algorithm(dataset=dataset, min_support=0.01)
     rule = generate_rule(fre_table, 0.3, len(dataset))
-    # print(rule.keys())
+    print(rule.keys())

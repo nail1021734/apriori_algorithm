@@ -9,10 +9,11 @@ def IBM_data():
     # print(data)
     for i in data:
         if i[0] in dataset:
-            dataset[i[0]].append(int(i[1]))
+            dataset[i[0]].append(i[1])
         else:
-            dataset[i[0]] = [int(i[1])]
+            dataset[i[0]] = [i[1]]
         # print([item for item, count in collections.Counter(i).items() if count > 1])
     # for i in list(dataset.values()):
     #     print(i)
+    # print(type(list(dataset.values())[0]))
     return list(dataset.values())

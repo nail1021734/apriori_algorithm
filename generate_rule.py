@@ -17,9 +17,9 @@ def generate_rule(frequency_table, min_conf, dataset_len):
                 if conf > min_conf:
                     key = tuple([tuple(subset), tuple(set(item_set)-set(subset))])
                     rule_set[key] = tuple([conf, frequency_table[tuple(item_set)]/dataset_len])
-    table = rule_set
-    table = sorted(table.items(), key=lambda x: x[1][0])
-    for key, value in table:
-        print(key[0], '=>', key[1], ': conf:', value[0],', sup:', value[1])
-    print(len(rule_set))
+    # table = rule_set
+    # table = sorted(table.items(), key=lambda x: x[1][0])
+    # for key, value in table:
+    #     print(key[0], '=>', key[1], ': conf:', value[0],', sup:', value[1])
+    # print(len(rule_set))
     return rule_set
